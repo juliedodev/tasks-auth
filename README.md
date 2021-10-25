@@ -1,5 +1,4 @@
 This is a full stack application with authentication where the users can enter important tasks and be able to check off whether it is completed or not.
-Link to Project: [https://juliedodev-tasks.netlify.app/]
 
 <img src="tasks.png">
 
