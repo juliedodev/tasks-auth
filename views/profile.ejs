@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <title>Tasks</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+</div>
+<h1>Tasks</h1>
+
+
+<h3>List</h3>
+<ul class="messages">
+<% for(var i=0; i<list.length; i++) { %>
+  <% let decoration = list[i].finished ? 'line-through' : 'none' %>
+  <% let heartColor = list[i].isFavorite ? 'red' : 'black' %>
+  <% let textColor = list[i].finished ? 'rgb(215, 219, 221)' : 'rgb(0, 0, 0)' %>
+  <li class="message">
+    <span class="js-text" style= "text-decoration: <%= decoration %>; color: <%= textColor %>"> <%= list[i].name %></span>
+    <input class="js-id"value="<%= list[i]._id %>" style="display: none;"type="">
+    <span><i class="fa fa-heart" aria-hidden style='color: <%= heartColor %>'></i></span>
+    <span><i class="fa fa-check" aria-hidden="true"></i></i></span>
+    <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+  </li>
+<% } %>
+</ul>
+
+<h2>Add a Task</h2>
+
+<form action="/list" method="POST">
+  <input type="text" placeholder="What do you want to add to your list?" name="list">
+  <button type="submit">Submit</button>
+</form>
+
+<script src="main.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
+</body>
+</html>
